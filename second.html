@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALINA | Alt Track Showcase</title>
+  <meta name="description" content="另一首主打專屬頁：不同配色與互動風格。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="second.css" />
+</head>
+<body>
+  <div class="grid-noise" aria-hidden="true"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+  <header class="alt-topbar">
+    <a class="brand" href="index.html">返回首頁主打</a>
+    <div class="top-actions">
+      <button id="altSoundToggle" class="pill" type="button">開啟聲音</button>
+      <a class="pill ghost" href="index.html">切回白色版</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="alt-hero" id="hero">
+      <div class="left reveal-up">
+        <p class="tag">ALT TITLE TRACK</p>
+        <h1>SECOND STAGE</h1>
+        <p class="desc">這一頁為另一首主打設計獨立視覺語言，以暗色電光、脈衝節奏和更強烈的舞台感呈現。</p>
+        <div class="chips">
+          <span>Neon Night</span>
+          <span>Alt Visual</span>
+          <span>Live Energy</span>
+        </div>
+      </div>
+      <div class="right tilt" id="altVideoWrap">
+        <video id="altVideo" playsinline autoplay loop preload="auto">
+          <source src="Alina gomeimei_1771266090827.mp4" type="video/mp4" />
+        </video>
+        <div class="vignette" aria-hidden="true"></div>
+        <div id="altHint" class="hint hidden">瀏覽器限制自動有聲播放，點「開啟聲音」即可。</div>
+      </div>
+    </section>
+
+    <section class="pulse-panel reveal-up">
+      <h2>互動節奏牆</h2>
+      <p>以下節奏條會依時間脈衝動態變化，滑鼠移入可加強效果。</p>
+      <div class="bars" id="bars">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="alt-card reveal-up tilt">
+        <h3>單曲包</h3>
+        <p class="price">NT$ 280</p>
+        <p>另一首主打 MV + 音源包</p>
+      </article>
+      <article class="alt-card reveal-up tilt focus">
+        <h3>雙主打組合</h3>
+        <p class="price">NT$ 1,180</p>
+        <p>白色主打 + 另一首主打完整內容</p>
+      </article>
+      <article class="alt-card reveal-up tilt">
+        <h3>全收藏</h3>
+        <p class="price">NT$ 1,890</p>
+        <p>雙主打 + 限定視覺 + 幕後加長版</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="second.js"></script>
+</body>
+</html>
