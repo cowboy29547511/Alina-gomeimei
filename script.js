@@ -88,6 +88,18 @@ function initVideoInteractions() {
   video.setAttribute('webkit-playsinline', '');
   video.muted = true;
 
+  const setBufferingState = (isBuffering) => {
+    videoWrapper.classList.toggle('is-buffering', isBuffering);
+  };
+
+  setBufferingState(true);
+  ['loadstart', 'waiting', 'stalled', 'seeking'].forEach((evt) => {
+    video.addEventListener(evt, () => setBufferingState(true));
+  });
+  ['loadeddata', 'canplay', 'playing', 'seeked'].forEach((evt) => {
+    video.addEventListener(evt, () => setBufferingState(false));
+  });
+
   const syncButton = () => {
     if (!soundToggle) return;
     const muted = video.muted;
@@ -128,6 +140,7 @@ function initVideoInteractions() {
   };
 
   video.addEventListener('error', () => {
+    setBufferingState(false);
     video.setAttribute('controls', '');
     if (soundStartHint) {
       soundStartHint.textContent = '影片格式受限，請點擊播放或更換瀏覽器';

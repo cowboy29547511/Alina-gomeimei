@@ -3,6 +3,24 @@ const altSoundToggle = document.getElementById("altSoundToggle");
 const altHint = document.getElementById("altHint");
 const spotlight = document.getElementById("spotlight");
 const bars = document.querySelectorAll("#bars span");
+const altVideoWrap = document.getElementById("altVideoWrap");
+
+function bindVideoBufferingUX() {
+  if (!altVideo || !altVideoWrap) return;
+
+  const setBufferingState = (isBuffering) => {
+    altVideoWrap.classList.toggle("is-buffering", isBuffering);
+  };
+
+  setBufferingState(true);
+  ["loadstart", "waiting", "stalled", "seeking"].forEach((evt) => {
+    altVideo.addEventListener(evt, () => setBufferingState(true));
+  });
+  ["loadeddata", "canplay", "playing", "seeked"].forEach((evt) => {
+    altVideo.addEventListener(evt, () => setBufferingState(false));
+  });
+  altVideo.addEventListener("error", () => setBufferingState(false));
+}
 
 async function autoPlayWithSound() {
   altVideo.muted = false;
@@ -75,6 +93,7 @@ barWrap.addEventListener("mouseenter", () => animateBars(true));
 barWrap.addEventListener("mouseleave", () => animateBars(false));
 
 window.addEventListener("DOMContentLoaded", () => {
+  bindVideoBufferingUX();
   autoPlayWithSound();
   animateBars(false);
   barTimer = setInterval(() => animateBars(false), 320);

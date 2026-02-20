@@ -346,3 +346,29 @@ h1 {
 
 
 
+/* Buffering blur: Page02 hero video */
+.right.is-buffering #altVideo {
+  filter: blur(14px) saturate(0.94) brightness(0.9);
+  transform: scale(1.03);
+}
+
+.right #altVideo {
+  transition: filter 0.45s ease, transform 0.45s ease;
+}
+
+.right.is-buffering::after {
+  content: 'BUFFERING';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Anton", sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 1.8px;
+  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(10, 36, 58, 0.3);
+  padding: 8px 12px;
+  border-radius: 999px;
+  pointer-events: none;
+}
