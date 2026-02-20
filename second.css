@@ -1,13 +1,13 @@
 ﻿:root {
-  --bg: #f5fbff;
-  --bg-soft: #eaf6ff;
+  --bg: #ffffff;
+  --bg-soft: #f3f5ff;
   --panel: rgba(255, 255, 255, 0.72);
   --panel-strong: rgba(255, 255, 255, 0.86);
   --text: #153047;
   --muted: #547086;
   --line: rgba(55, 118, 162, 0.2);
-  --accent: #5ec4ff;
-  --accent-2: #86e4d5;
+  --accent: #57d5ff;
+  --accent-2: #ff9be8;
 }
 
 * { box-sizing: border-box; }
@@ -17,9 +17,10 @@ html, body {
   min-height: 100%;
   color: var(--text);
   background:
-    radial-gradient(circle at 12% 16%, rgba(94, 196, 255, 0.28), transparent 32%),
-    radial-gradient(circle at 82% 10%, rgba(134, 228, 213, 0.24), transparent 30%),
-    linear-gradient(155deg, #f9fdff, var(--bg-soft) 42%, #f2f9ff);
+    radial-gradient(62rem 46rem at 8% 12%, rgba(96, 224, 255, 0.24), transparent 62%),
+    radial-gradient(58rem 44rem at 88% 8%, rgba(255, 174, 228, 0.24), transparent 58%),
+    radial-gradient(48rem 36rem at 52% 112%, rgba(173, 255, 214, 0.2), transparent 60%),
+    linear-gradient(158deg, #ffffff 0%, #f8fbff 38%, #f7f5ff 68%, #eef8ff 100%);
   font-family: "Noto Sans TC", sans-serif;
   overflow-x: hidden;
 }
@@ -28,12 +29,13 @@ html, body {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(21, 48, 71, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21, 48, 71, 0.05) 1px, transparent 1px);
-  background-size: 34px 34px;
+    linear-gradient(rgba(17, 41, 62, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 41, 62, 0.04) 1px, transparent 1px),
+    repeating-linear-gradient(124deg, rgba(128, 173, 255, 0.08) 0 1px, transparent 1px 56px);
+  background-size: 34px 34px, 34px 34px, auto;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.42;
+  opacity: 0.5;
   animation: gridFloat 18s linear infinite;
 }
 
@@ -41,22 +43,24 @@ html, body {
   content: "";
   position: absolute;
   inset: -28%;
-  background: linear-gradient(104deg, transparent 42%, rgba(255,255,255,0.4) 50%, transparent 58%);
+  background:
+    conic-gradient(from 120deg at 50% 50%, rgba(255, 174, 228, 0.22), rgba(98, 232, 255, 0.2), rgba(182, 255, 222, 0.2), rgba(255, 174, 228, 0.22)),
+    linear-gradient(104deg, transparent 40%, rgba(255,255,255,0.46) 50%, transparent 60%);
   animation: scanLight 10s ease-in-out infinite;
 }
 
 .spotlight {
   position: fixed;
-  width: 360px;
-  height: 360px;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(94, 196, 255, 0.2) 44%, transparent 72%);
-  filter: blur(20px);
+  background: radial-gradient(circle, rgba(255,255,255,0.97), rgba(100,224,255,0.22) 35%, rgba(255,165,232,0.2) 56%, rgba(178,255,220,0.18) 68%, transparent 78%);
+  filter: blur(24px) saturate(1.18);
   mix-blend-mode: screen;
   z-index: 1;
-  opacity: 0.7;
+  opacity: 0.86;
 }
 
 .alt-topbar {
@@ -95,7 +99,7 @@ html, body {
 
 .pill:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(59, 123, 172, 0.18);
+  box-shadow: 0 14px 32px rgba(94, 136, 194, 0.24);
 }
 
 .pill.ghost { border-color: rgba(94, 196, 255, 0.46); }
@@ -294,13 +298,14 @@ h1 {
 .hidden { display: none; }
 
 @keyframes gridFloat {
-  0% { background-position: 0 0, 0 0; }
-  100% { background-position: 0 34px, 34px 0; }
+  0% { background-position: 0 0, 0 0, 0 0; }
+  50% { background-position: 0 18px, 18px 0, -82px 40px; }
+  100% { background-position: 0 34px, 34px 0, -184px 100px; }
 }
 
 @keyframes scanLight {
-  0%, 100% { transform: translateX(-24%) rotate(0deg); opacity: 0.2; }
-  50% { transform: translateX(24%) rotate(1.4deg); opacity: 0.44; }
+  0%, 100% { transform: translateX(-22%) rotate(0deg) scale(1); opacity: 0.24; }
+  50% { transform: translateX(26%) rotate(2deg) scale(1.08); opacity: 0.54; }
 }
 
 @media (max-width: 1120px) {
@@ -335,4 +340,9 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+
+
+
+
 
