@@ -3,99 +3,181 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ALINA | New Single Premiere</title>
-  <meta name="description" content="ALINA 新歌主打宣傳官網，主視覺 MV、自動播放、互動體驗與專輯方案。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <title>ALINA | Eclipse Theory</title>
+  <meta name="description" content="ALINA 2026 全新單曲《Eclipse Theory》官方視覺頁，收錄概念敘事、影像素材與預購資訊。" />
+  <link rel="preload" href="20231011_16%E6%AD%B2%E5%A6%B9%E5%A6%B9.mp4" as="video" type="video/mp4" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
-  <div class="cursor-aura" id="cursorAura" aria-hidden="true"></div>
+<body data-theme="dark">
+  <div class="theme-transition-curtain"></div>
+  <canvas id="bgCanvas"></canvas>
 
-  <header class="topbar">
-    <a href="#home" class="brand">ALINA PREMIERE</a>
-    <nav>
-      <a href="#home">首頁</a>
-      <a href="#concept">概念</a>
-      <a href="#album">專輯</a>
-    </nav>
-    <div class="actions">
-      <a class="btn mini ghost" href="second.html">切換另一首主打</a>
-      <button id="soundToggle" class="btn mini" type="button">開啟聲音</button>
-      <button id="theaterBtn" class="btn mini ghost" type="button">劇院模式</button>
+  <nav class="fixed-nav">
+    <div class="nav-left">
+      <a href="#" class="brand-logo">ALINA.</a>
+      <span class="track-info">NOW PLAYING: ECLIPSE THEORY</span>
     </div>
-  </header>
+    <div class="nav-right">
+      <button id="themeToggle" class="mode-switch">
+        <span class="mode-label">LIGHT / DARK</span>
+        <div class="mode-indicator"></div>
+      </button>
+      <button id="menuBtn" class="menu-trigger">MENU</button>
+    </div>
+  </nav>
 
-  <main id="home">
-    <section class="hero">
-      <div class="hero-text reveal">
-        <p class="kicker">MAIN TRACK RELEASE</p>
-        <h1>NEW SINGLE</h1>
-        <p class="lead">以高對比影像節奏和偶像舞台能量打造的主打作品，現在立即完整播放。</p>
-        <div class="meta">
-          <span>Official MV</span>
-          <span>Collector Drop</span>
-          <span>Limited Window</span>
+  <main>
+    <section class="stage-section" id="hero">
+      <div class="frame-text top-left reveal-text">
+        <h1 class="glitch-text" data-text="ALINA">ALINA</h1>
+      </div>
+      <div class="frame-text top-right reveal-text delay-1">
+        <h1 class="glitch-text" data-text="RELEASE">RELEASE</h1>
+      </div>
+
+      <div class="video-stage">
+        <div class="video-wrapper">
+          <video id="mainVideo" playsinline webkit-playsinline autoplay loop muted preload="metadata" poster="IMG20230929003644.jpg">
+            <source src="20231011_16%E6%AD%B2%E5%A6%B9%E5%A6%B9.mp4" type="video/mp4" />
+            <source src="VID20231127205945.mp4" type="video/mp4" />
+          </video>
+          <div class="audio-viz-side left"></div>
+          <div class="audio-viz-side right"></div>
+          <p class="sound-start-hint" id="soundStartHint">點擊 UNMUTE 開始有聲播放</p>
         </div>
-        <div class="countdown" id="countdown">發售倒數：--:--:--:--</div>
+
+        <div class="video-controls-external">
+          <button id="soundToggle" class="control-btn">UNMUTE</button>
+          <div class="time-bar"><div class="time-progress"></div></div>
+        </div>
       </div>
 
-      <div class="hero-media reveal tilt" id="heroMedia">
-        <video id="featureVideo" playsinline autoplay loop preload="auto">
-          <source src="20231011_16歲妹妹.mp4" type="video/mp4" />
-        </video>
-        <div class="shade" aria-hidden="true"></div>
-        <div id="autoplayHint" class="autoplay-hint hidden">瀏覽器限制自動有聲播放，請點「開啟聲音」。</div>
+      <div class="frame-text bottom-left reveal-text delay-2">
+        <p class="release-date">2026.04.18</p>
+      </div>
+      <div class="frame-text bottom-right reveal-text delay-2">
+        <a href="#concept" class="scroll-down-link">READ STORY &darr;</a>
       </div>
     </section>
 
-    <section id="concept" class="concept reveal">
-      <article>
-        <p class="kicker">VISUAL CONCEPT</p>
-        <h2>霓光舞台 x 夜色情緒</h2>
-        <p>以白色與米白為視覺主體，搭配淡金、粉色和天空藍高光，做出乾淨精緻又有偶像感的展示風格。</p>
-      </article>
-      <article class="volume-box tilt">
-        <label for="volumeControl">音量</label>
-        <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="1" />
-        <p id="volumeLabel">100%</p>
-      </article>
+    <section class="content-section" id="concept">
+      <div class="split-layout">
+        <div class="split-col text-col">
+          <h2 class="section-heading">RELEASE<br>STORY</h2>
+          <p class="body-text">
+            在城市凌晨的霓光縫隙中，ALINA 把「失重感」寫成旋律。<br>
+            《Eclipse Theory》用冷暖對比的聲線，描繪一段從自我懷疑到重新發光的夜行旅程。
+          </p>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-num">01</span>
+              <span class="stat-label">Narrative</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">02</span>
+              <span class="stat-label">Visual System</span>
+            </div>
+          </div>
+        </div>
+        <div class="split-col visual-col">
+          <div class="interactive-box" id="interactiveBox">
+            <div class="box-face front"></div>
+            <div class="box-face back"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="surveillance-strip" id="surveillanceStrip">
+        <div class="strip-header">
+          <span class="blink">REC</span>
+          <span>ARCHIVE // PRESS_TEASERS</span>
+        </div>
+        <div class="marquee-track-wrapper">
+          <div class="marquee-track" id="marqueeTrack"></div>
+          <div class="marquee-track" aria-hidden="true" id="marqueeTrackClone"></div>
+        </div>
+      </div>
     </section>
 
-    <section id="album" class="plans">
-      <article class="card reveal tilt">
-        <h3>Digital</h3>
-        <p class="price">NT$ 320</p>
-        <p>主打 MV + 高音質音源</p>
-        <button type="button">立即收藏</button>
-      </article>
-      <article class="card reveal tilt hot">
-        <p class="badge">BEST VALUE</p>
-        <h3>第二張專輯 - 天光</h3>
-        <p class="price">NT$ 920</p>
-        <p>主打 MV + 第二張專輯曲目 + 幕後花絮</p>
-        <button type="button">加入購買清單</button>
-      </article>
-      <article class="card reveal tilt">
-        <h3>Collector</h3>
-        <p class="price">NT$ 1,680</p>
-        <p>Deluxe + 限定寫真與簽名視覺</p>
-        <a class="btn mini ghost" href="second.html">前往另一首主打頁</a>
-      </article>
+    <section class="album-section" id="album">
+      <div class="marquee-strip">
+        <div class="marquee-content">
+          PRE-ORDER NOW // DIGITAL EP // CD + PHOTOBOOK // LIMITED BOX // PRE-ORDER NOW //
+        </div>
+      </div>
+
+      <div class="album-grid">
+        <article class="album-item">
+          <img class="album-cover-image" src="image.png" alt="Digital EP cover" loading="lazy" />
+          <div class="album-info">
+            <h3>DIGITAL EP</h3>
+            <p>NT$ 199</p>
+            <button class="action-btn">ADD TO CART</button>
+          </div>
+        </article>
+
+        <article class="album-item featured">
+          <img class="album-cover-image" src="image_1771570029565.png" alt="CD + Photobook cover" loading="lazy" />
+          <div class="album-info">
+            <h3>CD + PHOTOBOOK</h3>
+            <p>NT$ 699</p>
+            <button class="action-btn">PRE-ORDER NOW</button>
+          </div>
+        </article>
+
+        <article class="album-item">
+          <img class="album-cover-image" src="IMG20230929003644.jpg" alt="Limited Box cover" loading="lazy" />
+          <div class="album-info">
+            <h3>LIMITED BOX</h3>
+            <p>NT$ 1,680</p>
+            <button class="action-btn">JOIN WAITLIST</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="media-appendix" id="mediaAppendix">
+      <div class="appendix-head">
+        <h2>PRESS ASSETS</h2>
+        <p>媒體引用圖、發行花絮與宣傳剪輯素材。</p>
+      </div>
+      <div class="appendix-grid">
+        <article class="appendix-card">
+          <img src="IMG20230929003644.jpg" alt="ALINA press still" loading="lazy" />
+        </article>
+        <article class="appendix-card">
+          <video playsinline webkit-playsinline controls preload="metadata">
+            <source src="VID20231127205945.mp4" type="video/mp4" />
+          </video>
+        </article>
+      </div>
+    </section>
+
+    <section class="edition-switch-block" aria-label="Edition switch block">
+      <div class="edition-switch-copy">
+        <p class="edition-switch-kicker">NEXT EXPERIENCE</p>
+        <h3>PRISM EDITION / PAGE 02</h3>
+        <p>點擊右側封面可切換到 Page 02，延續同一首作品的第二視覺章節。</p>
+      </div>
+      <a class="edition-switch-thumb" data-edition-target="second.html" href="second.html" aria-label="前往 Page 02">
+        <img class="switch-cover switch-cover-main" src="image_1771575559776.png" alt="Prism Edition 素材主圖" loading="lazy" />
+        <img class="switch-cover switch-cover-sub" src="IMG20230929003644_1771575559787.jpg" alt="Prism Edition 素材副圖" loading="lazy" />
+      </a>
     </section>
   </main>
 
-  <div class="theater hidden" id="theater">
-    <button id="closeTheater" class="close" type="button">關閉</button>
-    <video id="theaterVideo" controls playsinline>
-      <source src="20231011_16歲妹妹.mp4" type="video/mp4" />
-    </video>
-  </div>
+  <footer>
+    <div class="footer-content">
+      <span>&copy; 2026 ALINA STUDIO.</span>
+      <a href="second.html" class="next-track-link">PRISM EDITION -></a>
+    </div>
+  </footer>
 
-  <footer>c 2026 ALINA OFFICIAL RELEASE SITE</footer>
-
-  <script src="script.js"></script>
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="page-switch.js" defer></script>
 </body>
 </html>

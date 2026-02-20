@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ALINA | Alt Track Showcase</title>
-  <meta name="description" content="另一首主打專屬頁：不同配色與互動風格。" />
+  <title>ALINA | Page 02 Fresh Edition</title>
+  <meta name="description" content="Page 02 清新視覺版：更輕盈的介面與素材展示。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
@@ -18,24 +18,24 @@
     <a class="brand" href="index.html">返回首頁主打</a>
     <div class="top-actions">
       <button id="altSoundToggle" class="pill" type="button">開啟聲音</button>
-      <a class="pill ghost" href="index.html">切回白色版</a>
+      <a class="pill ghost" href="index.html">回到主頁</a>
     </div>
   </header>
 
   <main>
     <section class="alt-hero" id="hero">
       <div class="left reveal-up">
-        <p class="tag">ALT TITLE TRACK</p>
-        <h1>SECOND STAGE</h1>
-        <p class="desc">這一頁為另一首主打設計獨立視覺語言，以暗色電光、脈衝節奏和更強烈的舞台感呈現。</p>
+        <p class="tag">PAGE 02 FRESH CUT</p>
+        <h1>SECOND BLOOM</h1>
+        <p class="desc">以清新、透氣的版面節奏重構 Page 02。保留動態互動，加入更柔和的空間層次與素材展示。</p>
         <div class="chips">
-          <span>Neon Night</span>
-          <span>Alt Visual</span>
-          <span>Live Energy</span>
+          <span>Fresh Atmosphere</span>
+          <span>Soft Motion</span>
+          <span>Visual Archive</span>
         </div>
       </div>
       <div class="right tilt" id="altVideoWrap">
-        <video id="altVideo" playsinline autoplay loop preload="auto">
+        <video id="altVideo" playsinline webkit-playsinline autoplay loop preload="metadata" poster="IMG20230929003644.jpg">
           <source src="Alina gomeimei_1771266090827.mp4" type="video/mp4" />
         </video>
         <div class="vignette" aria-hidden="true"></div>
@@ -45,9 +45,30 @@
 
     <section class="pulse-panel reveal-up">
       <h2>互動節奏牆</h2>
-      <p>以下節奏條會依時間脈衝動態變化，滑鼠移入可加強效果。</p>
+      <p>節奏條會持續脈衝；滑鼠移入時強化律動，維持頁面生命感。</p>
       <div class="bars" id="bars">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <section class="visual-strip reveal-up">
+      <div class="strip-head">
+        <h2>素材拼貼牆</h2>
+        <p>介面直接使用既有素材檔案，建立 Page 02 的清新視覺語氣。</p>
+      </div>
+      <div class="strip-grid">
+        <article class="visual-card tilt">
+          <img src="image_1771570029565.png" alt="Visual asset 01" loading="lazy" />
+        </article>
+        <article class="visual-card tilt">
+          <img src="image_1771575559776.png" alt="Visual asset 02" loading="lazy" />
+        </article>
+        <article class="visual-card tilt">
+          <img src="IMG20230929003644.jpg" alt="Visual asset 03" loading="lazy" />
+        </article>
+        <article class="visual-card tilt">
+          <img src="image_1771572256523.png" alt="Visual asset 04" loading="lazy" />
+        </article>
       </div>
     </section>
 
@@ -70,6 +91,7 @@
     </section>
   </main>
 
-  <script src="second.js"></script>
+  <script src="second.js" defer></script>
 </body>
 </html>
+
